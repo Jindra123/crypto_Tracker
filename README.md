@@ -6,6 +6,7 @@ This project was bootstrapped with [Create React CoinTablePage](https://github.c
 
 In the project directory, you can run:
 
+### `npm i` to instal dependencies
 ### `npm start`
 
 Runs the app in the development mode.\

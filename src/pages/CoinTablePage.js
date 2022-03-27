@@ -37,8 +37,7 @@ function CoinTablePage() {
     const searchHandler = () => {
         return coins.filter(
             (coin) =>
-                coin.name.toLowerCase().includes(search.toLowerCase()) ||
-                coin.symbol.toLowerCase().includes(search.toLowerCase())
+                coin.name.toLowerCase().includes(search.toLowerCase())
         );
     }
     return (
@@ -46,7 +45,14 @@ function CoinTablePage() {
                 <Typography variant="h2" align="center" sx={{mb:"4%", mt:"4%"}}>Kryptoměny</Typography>
                 <Container style={{ textAlign: "center" }}>
                     <div>
-                        <TextField sx={{width: '50vw', mb:"5%", color:"white"}} type='text' id="white" color="secondary" label="Find your crypto" variant="outlined" onChange={handleChange}/>
+                        <TextField
+                            sx={{width: '50vw', mb:"5%", color:"white"}}
+                            type='text'
+                            id="white"
+                            color="secondary"
+                            label="Find your crypto"
+                            variant="outlined"
+                            onChange={handleChange}/>
                     </div>
                     <TableContainer component={Paper}>
                             <Table sx={{}} aria-label="simple table">
