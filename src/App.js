@@ -1,25 +1,41 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+
+import CoinTablePage from './pages/CoinTablePage';
+import CoinInfoPage from "./pages/CoinInfoPage";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+
+import { ThemeProvider, createTheme } from '@mui/material/styles';
+
+const theme = createTheme({
+    typography: {
+        fontFamily: "Quicksand",
+        fontWeightLight: 400,
+        fontWeightRegular: 500,
+        fontWeightMedium: 600,
+        fontWeightBold: 700,
+    },
+    pallete: {
+        background: {
+            default: "#2b2b2b"
+        },
+        text: {
+            priamry: "#ffffff"
+        }
+    }
+});
+
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <ThemeProvider theme = { theme }>
+            <BrowserRouter>
+                <Routes>
+                    <Route exact path="/" element={<CoinTablePage />} />
+                    <Route path="/coininfo/:id" element={<CoinInfoPage />}/>
+                </Routes>
+            </BrowserRouter>
+        </ThemeProvider>
+    )
 }
 
 export default App;
