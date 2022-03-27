@@ -20,7 +20,6 @@ import {
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
 import {CircularProgress} from "@mui/material";
-import {DateTime} from "luxon";
 import {Container} from "@mui/material";
 import Typography from "@mui/material/Typography";
 
@@ -39,7 +38,6 @@ function CoinInfoPage() {
             .get(`https://api.coingecko.com/api/v3/coins/${id.id}/market_chart?vs_currency=usd&days=365&interval=dayily`)
             .then(res => {
                 setHistoricalData(res.data);
-                console.log(res.data)
             })
             .catch(error => alert('error'));
 
@@ -47,19 +45,18 @@ function CoinInfoPage() {
             .get(`https://api.coingecko.com/api/v3/coins/${id.id}`)
             .then(res => {
                 setCoin(res.data);
-                console.log(res.data)
             })
             .catch(error => alert('error'));
     }, [])
 
 
     const dateFormater = date => {
-        const dateVar = new Date(date)
+        const dateVar = new Date(date);
         return dateVar.toLocaleDateString("en-US");
     }
 
     const priceFormater = price => {
-        return price + " $"
+        return price + " $";
     }
 
     return (
