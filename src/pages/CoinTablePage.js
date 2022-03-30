@@ -95,7 +95,7 @@ function CoinTablePage() {
                             display: "flex",
                             justifyContent: "center",
                         }}
-                        count={(searchHandler()?.length/10).toFixed(0)}
+                        count={(searchHandler()?.length/5).toFixed(0)}
                         onChange={(_, value) => {
                           setPage(value);
                           window.scroll(0, 450);
